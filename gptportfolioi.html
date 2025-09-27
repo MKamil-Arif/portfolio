@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Talent Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <style>
+    /* ---------- Variables ---------- */
+    :root {
+      --bg-gradient: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+      --primary: #ff0080;
+      --secondary: #7928ca;
+      --accent: #00f2fe;
+      --text: #fff;
+      --text-dark: #222;
+    }
+
+    [data-theme="light"] {
+      --bg-gradient: linear-gradient(120deg, #f9f9f9, #e0e0e0, #f0f0f0);
+      --text: #222;
+      --text-dark: #fff;
+    }
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ---------- Navbar ---------- */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: var(--accent);
+    }
+
+    #theme-toggle {
+      background: none; border: none; cursor: pointer;
+      font-size: 1.2rem; color: var(--text);
+    }
+
+    /* ---------- Hero Section ---------- */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 0 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero span {
+      font-size: 1.2rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 5rem 10%;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    section h2::after {
+      content: "";
+      position: absolute;
+      width: 80px; height: 3px;
+      background: var(--accent);
+      left: 50%; transform: translateX(-50%);
+      bottom: -10px;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+    }
+
+    .skill-bar {
+      height: 10px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: .5rem;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      width: 0;
+    }
+
+    /* ---------- Services ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover { transform: translateY(-10px); }
+
+    /* ---------- Projects ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    /* ---------- Resume Timeline ---------- */
+    .timeline {
+      border-left: 2px solid var(--accent);
+      padding-left: 2rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 15px; height: 15px;
+      background: var(--accent);
+      border-radius: 50%;
+      left: -9px; top: 5px;
+    }
+
+    /* ---------- Testimonials ---------- */
+    .testimonial {
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .contact-method {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      margin-top: 2rem;
+    }
+
+    /* ---------- Animations ---------- */
+    @keyframes fillBar {
+      from { width: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <h1>Hello, I'm <span>Multi-Talented</span></h1>
+    <h2><span id="typed-text"></span></h2>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-category" data-aos="fade-up">
+        <h3>Development</h3>
+        <p>HTML, CSS, JavaScript, React, Node.js, Python</p>
+      </div>
+      <div class="skill-category" data-aos="fade-up">
+        <h3>Cybersecurity</h3>
+        <p>Penetration Testing, SQL Injection, XSS, OWASP</p>
+      </div>
+      <div class="skill-category" data-aos="fade-up">
+        <h3>Creative</h3>
+        <p>UI/UX, Photoshop, Illustrator, Figma</p>
+      </div>
+      <div class="skill-category" data-aos="fade-up">
+        <h3>Soft Skills</h3>
+        <p>Leadership, Problem-Solving, Communication</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services-grid">
+      <div class="service-card" data-aos="zoom-in">
+        <i class="fas fa-laptop-code fa-2x"></i>
+        <h3>Full-Stack Development</h3>
+        <p>Building responsive websites and scalable apps.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in">
+        <i class="fas fa-shield-alt fa-2x"></i>
+        <h3>Penetration Testing</h3>
+        <p>Securing systems through ethical hacking.</p>
+      </div>
+      <div class="service-card" data-aos="zoom-in">
+        <i class="fas fa-pencil-ruler fa-2x"></i>
+        <h3>Design & Branding</h3>
+        <p>Crafting visually stunning user experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-tilt>
+        <img src="https://via.placeholder.com/300x200" alt="Project 1">
+        <h3>Portfolio Website</h3>
+        <p>Personal portfolio with animations and effects.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <img src="https://via.placeholder.com/300x200" alt="Project 2">
+        <h3>PenTesting Toolkit</h3>
+        <p>Scripts and tools for vulnerability testing.</p>
+      </div>
+      <div class="project-card" data-tilt>
+        <img src="https://via.placeholder.com/300x200" alt="Project 3">
+        <h3>UI Dashboard</h3>
+        <p>Interactive dashboard with charts and analytics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume -->
+  <section id="resume">
+    <h2>Resume</h2>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Senior Developer @ TechCorp</h3>
+        <span>2023 – Present</span>
+        <p>Leading full-stack projects with a focus on performance and scalability.</p>
+      </div>
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Penetration Tester @ CyberSafe</h3>
+        <span>2021 – 2023</span>
+        <p>Conducted security audits and vulnerability assessments.</p>
+      </div>
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Bachelor's in Computer Science</h3>
+        <span>2018 – 2021</span>
+        <p>Specialized in software engineering and cybersecurity.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial" data-aos="zoom-in">
+      <p>"An exceptional developer and security expert — always delivers beyond expectations!"</p>
+      <h4>- Client A</h4>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-method" data-aos="fade-up">
+        <i class="fas fa-envelope fa-2x"></i>
+        <p>youremail@example.com</p>
+      </div>
+      <div class="contact-method" data-aos="fade-up">
+        <i class="fas fa-phone fa-2x"></i>
+        <p>+123 456 789</p>
+      </div>
+      <div class="contact-method" data-aos="fade-up">
+        <i class="fab fa-linkedin fa-2x"></i>
+        <p>linkedin.com/in/yourprofile</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Multi-Talented Portfolio. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Typed text
+    new Typed("#typed-text", {
+      strings: ["Developer • Penetration Tester • Designer • Innovator"],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+
+    // Theme toggle
+    const toggle = document.getElementById("theme-toggle");
+    toggle.addEventListener("click", () => {
+      document.body.dataset.theme = document.body.dataset.theme === "light" ? "dark" : "light";
+      toggle.innerHTML = document.body.dataset.theme === "light"
+        ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+
+    // Animate skill bars
+    const skillBars = document.querySelectorAll(".skill-progress");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.progress;
+          entry.target.style.animation = "fillBar 2s forwards";
+        }
+      });
+    }, { threshold: 0.5 });
+    skillBars.forEach(bar => observer.observe(bar));
+
+    // ScrollReveal & AOS
+    ScrollReveal().reveal('.service-card', { delay: 200, distance: '50px', origin: 'bottom', interval: 200 });
+    AOS.init();
+  </script>
+</body>
+</html>

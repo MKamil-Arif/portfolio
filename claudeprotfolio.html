@@ -29,50 +29,41 @@
         --header-font: 'Orbitron', sans-serif;
         --body-font: 'Inter', sans-serif;
     }
-
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
     html {
         scroll-behavior: smooth;
     }
-
     body {
         background-color: var(--bg-color);
         color: var(--text-color);
         font-family: var(--body-font);
         line-height: 1.6;
     }
-
     .container {
         max-width: 1100px;
         margin: 0 auto;
         padding: 0 2rem;
     }
-
     section {
         padding: 6rem 0;
     }
-
     h1, h2, h3 {
         font-family: var(--header-font);
         margin-bottom: 1rem;
         color: #fff;
     }
-
     h1 { font-size: 3.5rem; line-height: 1.1; }
     h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; }
     h3 { font-size: 1.5rem; }
     p { margin-bottom: 1rem; }
-
     a {
         color: var(--accent-color);
         text-decoration: none;
     }
-
     /* ======================= */
     /* NAVIGATION              */
     /* ======================= */
@@ -85,39 +76,32 @@
         z-index: 1000;
         border-bottom: 1px solid var(--border-color);
     }
-
     .sticky-nav nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 1rem 2rem;
     }
-
     .logo {
         font-family: var(--header-font);
         font-size: 1.5rem;
         font-weight: bold;
         color: #fff;
     }
-
     .nav-links {
         display: flex;
         list-style: none;
     }
-
     .nav-links li {
         margin-left: 2rem;
     }
-
     .nav-links a {
         color: var(--text-color);
         transition: color 0.3s ease;
     }
-
     .nav-links a:hover {
         color: var(--accent-color);
     }
-
     .mobile-menu-toggle {
         display: none;
         background: none;
@@ -126,13 +110,11 @@
         font-size: 1.5rem;
         cursor: pointer;
     }
-
     /* Mobile Navigation */
     @media (max-width: 768px) {
         .mobile-menu-toggle {
             display: block;
         }
-
         .nav-links {
             position: fixed;
             top: 100%;
@@ -146,23 +128,19 @@
             transition: transform 0.3s ease;
             border-top: 1px solid var(--border-color);
         }
-
         .nav-links.active {
             transform: translateY(0);
         }
-
         .nav-links li {
             margin: 0.5rem 0;
             text-align: center;
         }
-
         .nav-links a {
             font-size: 1.2rem;
             padding: 1rem;
             display: block;
         }
     }
-
     /* ============================= */
     /* HERO SECTION - SPLINE STYLES  */
     /* ============================= */
@@ -175,7 +153,6 @@
         position: relative; /* Needed for positioning children */
         overflow: hidden;
     }
-
     #particles-js {
         position: absolute;
         width: 100%;
@@ -185,7 +162,6 @@
         z-index: 1;
         pointer-events: all; /* Ensure particles can receive mouse events */
     }
-
     spline-viewer {
         position: absolute;
         top: 0;
@@ -195,7 +171,6 @@
         z-index: 2; /* Place it above particles but below text */
         pointer-events: none; /* Make spline non-interactive so particles can receive events */
     }
-
     .hero-content {
         position: relative;
         max-width: 800px;
@@ -207,43 +182,36 @@
         pointer-events: none; /* Make content non-interactive */
         z-index: 3;
     }
-    
     .hero-content * {
         pointer-events: auto; /* But allow interaction with content elements */
-    }
-    
+    }    
     .hero-section .subtitle {
         font-size: 1.2rem;
         color: var(--text-color);
         margin-bottom: 2rem;
     }
-
     /* ======================= */
     /* ABOUT & CONTACT         */
     /* ======================= */
     .about-section, .contact-section {
         background-color: var(--primary-color);
     }
-
     .about-section .container, .contact-section .container {
         max-width: 700px;
         text-align: center;
     }
-
     /* ======================= */
     /* SKILLS SECTION          */
     /* ======================= */
     .skills-section {
         background-color: var(--bg-color);
     }
-
     .skills-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         margin-top: 2rem;
     }
-
     .skill-category {
         background-color: var(--primary-color);
         border: 1px solid var(--border-color);
@@ -252,29 +220,24 @@
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .skill-category:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
     .skill-category h3 {
         color: var(--accent-color);
         margin-bottom: 1.5rem;
         font-size: 1.3rem;
     }
-
     .skill-category i {
         margin-right: 0.5rem;
     }
-
     .skills-list {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         justify-content: center;
     }
-
     .skill-tag {
         background-color: rgba(88, 166, 255, 0.1);
         color: var(--accent-color);
@@ -284,13 +247,11 @@
         border: 1px solid rgba(88, 166, 255, 0.3);
         transition: all 0.3s ease;
     }
-
     .skill-tag:hover {
         background-color: var(--accent-color);
         color: var(--bg-color);
         transform: translateY(-2px);
     }
-
     /* ======================= */
     /* WORK SECTION            */
     /* ======================= */
@@ -299,7 +260,6 @@
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
     }
-
     .project-card {
         background-color: var(--primary-color);
         border: 1px solid var(--border-color);
@@ -307,30 +267,25 @@
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .project-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
     .project-card img {
         width: 100%;
         height: 200px;
         object-fit: cover;
     }
-
     .project-card h3, .project-card p, .project-links {
         padding: 0 1.5rem;
     }
     .project-card h3 { margin-top: 1.5rem; }
     .project-card p { font-size: 0.9rem; color: var(--text-color); }
     .project-links { padding-bottom: 1.5rem; margin-top: 1rem; }
-
     .project-meta {
         padding: 0 1.5rem;
         margin: 1rem 0 0.5rem 0;
     }
-
     .project-type {
         background: rgba(88, 166, 255, 0.2);
         color: var(--accent-color);
@@ -340,7 +295,6 @@
         font-weight: bold;
         display: inline-block;
     }
-
     .tech-stack {
         padding: 0 1.5rem;
         margin: 1rem 0;
@@ -348,7 +302,6 @@
         flex-wrap: wrap;
         gap: 0.5rem;
     }
-
     .tech-tag {
         background: var(--bg-color);
         color: var(--text-color);
@@ -357,7 +310,6 @@
         font-size: 0.8rem;
         border: 1px solid var(--border-color);
     }
-
     /* ======================= */
     /* FORMS                   */
     /* ======================= */
@@ -366,7 +318,6 @@
         flex-direction: column;
         gap: 1rem;
     }
-
     .contact-form input, .contact-form textarea {
         width: 100%;
         padding: 0.8rem;
@@ -376,14 +327,12 @@
         color: var(--text-color);
         font-family: var(--body-font);
     }
-
     .contact-info {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 2rem;
         margin: 3rem 0;
     }
-
     .contact-method {
         background: var(--bg-color);
         padding: 2rem;
@@ -392,23 +341,19 @@
         text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
     .contact-method:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
-
     .contact-method i {
         font-size: 2rem;
         color: var(--accent-color);
         margin-bottom: 1rem;
     }
-
     .contact-method h4 {
         margin-bottom: 0.5rem;
         color: #fff;
     }
-
     /* ======================= */
     /* BUTTONS                 */
     /* ======================= */
@@ -421,30 +366,25 @@
         transition: all 0.3s ease;
         cursor: pointer;
     }
-
     .cta-button {
         background-color: var(--accent-color);
         color: var(--bg-color);
         border: none;
     }
-
     .cta-button:hover {
         background-color: #79c0ff;
         transform: translateY(-2px);
     }
-
     .cta-button-secondary {
         background-color: transparent;
         color: var(--accent-color);
         border: 1px solid var(--accent-color);
         margin-right: 0.5rem;
     }
-
     .cta-button-secondary:hover {
         background-color: var(--accent-color);
         color: var(--bg-color);
     }
-
     /* ======================= */
     /* FOOTER                  */
     /* ======================= */
@@ -454,14 +394,12 @@
         border-top: 1px solid var(--border-color);
         font-size: 0.9rem;
     }
-
     .social-links {
         margin: 2rem 0;
         display: flex;
         justify-content: center;
         gap: 1rem;
     }
-
     .social-link {
         display: inline-flex;
         align-items: center;
@@ -473,21 +411,18 @@
         color: var(--text-color);
         transition: all 0.3s ease;
     }
-
     .social-link:hover {
         background-color: var(--accent-color);
         color: var(--bg-color);
         border-color: var(--accent-color);
         transform: translateY(-2px);
     }
-
     /* ======================= */
     /* RESPONSIVE DESIGN       */
     /* ======================= */
     @media (max-width: 768px) {
         h1 { font-size: 2.5rem; }
         h2 { font-size: 2rem; }
-
         section {
             padding: 4rem 0;
         }
@@ -498,16 +433,13 @@
             font-size: 1rem;
             margin-bottom: 1.5rem;
         }
-
         .contact-info {
             grid-template-columns: 1fr;
         }
-
         .social-links {
             flex-wrap: wrap;
         }
     }
-
             .code-container {
             max-width: 1300px;
             flex: 1;
@@ -774,7 +706,7 @@
             </div>
             </div>
             
-            <div class="footer">
+            <div class="code-content-footer">
                 <p>Designed to match your exact styling requirements</p>
             </div>
                 </div>
@@ -782,13 +714,15 @@
             </div>
         </section>
 
-        <!-- Add resume preview section -->
+        <!--
+        Add resume preview section 
         <section id="resume" class="resume-section">
             <div class="container">
                 <h2>Professional Experience</h2>
-                <!-- Timeline of work experience, education, certifications -->
+                 Timeline of work experience, education, certifications 
             </div>
         </section>
+        -->
 
         <section id="skills" class="skills-section">
             <div class="container">

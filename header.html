@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Header</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 80px;
+            background: #ffffff;
+        }
+
+        /* Animated Background Lines */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .sticky-nav::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3498db, transparent);
+            animation: lineSlide 3s infinite;
+        }
+
+        @keyframes lineSlide {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .sticky-nav.scrolled {
+            box-shadow: 0 4px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 80px;
+            padding: 15px 20px;
+        }
+
+        /* Animated Logo with Floating Effect */
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: 1px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #9b59b6);
+            transition: width 0.5s ease;
+        }
+
+        .logo:hover::after {
+            width: 100%;
+        }
+
+        /* Letter Animation on Hover */
+        .logo span {
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover span {
+            animation: bounce 0.5s ease;
+        }
+
+        .logo:hover span:nth-child(1) { animation-delay: 0s; }
+        .logo:hover span:nth-child(2) { animation-delay: 0.05s; }
+        .logo:hover span:nth-child(3) { animation-delay: 0.1s; }
+        .logo:hover span:nth-child(4) { animation-delay: 0.15s; }
+        .logo:hover span:nth-child(5) { animation-delay: 0.2s; }
+        .logo:hover span:nth-child(6) { animation-delay: 0.25s; }
+        .logo:hover span:nth-child(7) { animation-delay: 0.3s; }
+        .logo:hover span:nth-child(8) { animation-delay: 0.35s; }
+        .logo:hover span:nth-child(9) { animation-delay: 0.4s; }
+        .logo:hover span:nth-child(10) { animation-delay: 0.45s; }
+        .logo:hover span:nth-child(11) { animation-delay: 0.5s; }
+        .logo:hover span:nth-child(12) { animation-delay: 0.55s; }
+        .logo:hover span:nth-child(13) { animation-delay: 0.6s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Navigation Links with Wave Animation */
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links li {
+            position: relative;
+            animation: fadeInDown 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .nav-links li:nth-child(1) { animation-delay: 0.1s; }
+        .nav-links li:nth-child(2) { animation-delay: 0.2s; }
+        .nav-links li:nth-child(3) { animation-delay: 0.3s; }
+        .nav-links li:nth-child(4) { animation-delay: 0.4s; }
+        .nav-links li:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 0;
+            display: inline-block;
+        }
+
+        /* Multiple Underline Effects */
+        .nav-links li a:not(.cta-button)::before,
+        .nav-links li a:not(.cta-button)::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            transition: width 0.4s ease;
+        }
+
+        .nav-links li a:not(.cta-button)::before {
+            left: 50%;
+            background: #3498db;
+            transform: translateX(-50%);
+        }
+
+        .nav-links li a:not(.cta-button)::after {
+            right: 50%;
+            background: #9b59b6;
+            transform: translateX(50%);
+        }
+
+        .nav-links li a:not(.cta-button):hover::before,
+        .nav-links li a:not(.cta-button):hover::after {
+            width: 50%;
+        }
+
+        .nav-links li a:not(.cta-button):hover {
+            color: #3498db;
+            transform: translateY(-3px);
+        }
+
+        /* Animated Dots on Hover */
+        .nav-links li::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 6px;
+            height: 6px;
+            background: #3498db;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links li:hover::before {
+            transform: translateX(-50%) scale(1);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* CTA Button with Ripple Effect */
+        .cta-button {
+            background: linear-gradient(135deg, #3498db, #9b59b6);
+            color: #ffffff !important;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Menu Toggle with Morphing Animation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #2c3e50;
+            border-radius: 3px;
+            position: absolute;
+            left: 5px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .mobile-menu-toggle span:nth-child(1) {
+            top: 10px;
+        }
+
+        .mobile-menu-toggle span:nth-child(2) {
+            top: 18px;
+        }
+
+        .mobile-menu-toggle span:nth-child(3) {
+            top: 26px;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            top: 18px;
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            top: 18px;
+            transform: rotate(-45deg);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            nav {
+                padding: 15px 0;
+                min-height: 70px;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #ffffff;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 40px 20px;
+                gap: 0;
+                transform: translateX(-100%);
+                transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                overflow-y: auto;
+                box-shadow: 5px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 30px;
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            .nav-links.active li {
+                animation: slideInLeft 0.5s ease forwards;
+            }
+
+            .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+            .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+
+            @keyframes slideInLeft {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            .nav-links li::before {
+                display: none;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 15px 20px;
+                font-size: 18px;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links li a:not(.cta-button):hover {
+                background: #f8f9fa;
+                padding-left: 30px;
+                color: #3498db;
+            }
+
+            .nav-links li a::before,
+            .nav-links li a::after {
+                display: none;
+            }
+
+            .cta-button {
+                margin-top: 10px;
+                width: 100%;
+                text-align: center;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+        }
+
+        /* Tablet */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links {
+                gap: 25px;
+            }
+
+            .nav-links li a {
+                font-size: 15px;
+            }
+        }
+
+        /* Demo Content */
+        .demo-content {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-section {
+            min-height: 500px;
+            margin-bottom: 40px;
+            padding: 50px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header class="sticky-nav">
+        <nav class="container">
+            <a href="#" class="logo">
+                <span>K</span><span>A</span><span>M</span><span>C</span><span>O</span><span>D</span><span>E</span><span>D</span><span>E</span><span>S</span><span>I</span><span>G</span><span>N</span><span>E</span><span>R</span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button"><span>Download Resume</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <section id="about" class="demo-section">
+            <h2>About Section</h2>
+            <p>This header features multiple smooth animations including floating logo, wave underlines, ripple effects, and staggered menu animations. Scroll down to see more animations!</p>
+        </section>
+
+        <section id="skills" class="demo-section">
+            <h2>Skills Section</h2>
+            <p>Notice the animated line at the top of the header and the pulse effect on navigation items when you hover over them.</p>
+        </section>
+
+        <section id="work" class="demo-section">
+            <h2>Work Section</h2>
+            <p>The mobile menu slides in with individual item animations. Try resizing your browser to see the responsive behavior!</p>
+        </section>
+
+        <section id="contact" class="demo-section">
+            <h2>Contact Section</h2>
+            <p>Each element has been carefully animated to create a smooth, professional user experience.</p>
+        </section>
+    </div>
+
+    <script>
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const nav = document.querySelector('.sticky-nav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Ripple effect for CTA button
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            let ripple = document.createElement('span');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.width = ripple.style.height = '100px';
+            ripple.style.left = e.clientX - this.offsetLeft - 50 + 'px';
+            ripple.style.top = e.clientY - this.offsetTop - 50 + 'px';
+            ripple.style.animation = 'rippleEffect 0.6s';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAMCODESIGNER | Creative Technologist</title>
+    <meta name="description" content="KAMCODESIGNER - Creative full-stack developer and UI/UX architect building the next generation of the web">
+    <meta property="og:title" content="KAMCODESIGNER | Creative Technologist">
+    <meta property="og:description" content="Creative full-stack developer and UI/UX architect building innovative web experiences">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.0.94/build/spline-viewer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="custom-cursor"></div>
+    <header class="sticky-nav">
+        <nav class="container">
+            <a href="#" class="logo">KAMCODESIGNER</a>
+            <button class="mobile-menu-toggle" aria-label="Open navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="cta-button" download>Download Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="command-palette" class="hidden">
+  <div class="palette-box">
+    <input 
+      type="text" 
+      id="command-input"
+      placeholder="Type a command (about, skills, work...)"
+      autocomplete="off"
+    />
+    <ul id="command-results"></ul>
+  </div>
+</div>
+            <div id="project-modal" class="project-modal hidden">
+  <div class="project-modal-content">
+    <button class="close-modal" aria-label="Close project modal">×</button>
+    <h2 id="modal-title">Project Title</h2>
+    <p id="modal-tagline">Short one-line summary</p>
+    <div class="modal-section">
+      <h3>Problem</h3>
+      <p id="modal-problem"></p>
+    </div>
+    <div class="modal-section">
+      <h3>Solution</h3>
+      <p id="modal-solution"></p>
+    </div>
+    <div class="modal-section">
+      <h3>Tech Stack</h3>
+      <div id="modal-tech" class="tech-stack"></div>
+    </div>
+    <div class="modal-section">
+      <h3>Results</h3>
+      <p id="modal-results"></p>
+    </div>
+  </div>
+</div>
+        <section id="hero" class="hero-section reveal">
+            <div id="particles-js"></div>
+            <div class="hero-content">
+                <h1>Crafting Digital Experiences that Inspire & Convert.</h1>
+                <p class="subtitle">I'm KAMCODESIGNER, a creative full-stack developer and UI/UX architect building the next generation of the web.</p>
+                <p class="subtitle"></p>
+                <a href="#contact" class="cta-button">Let's Create Something Amazing</a>
+            </div>
+        </section>
+        <section id="about" class="about-section reveal">
+            <div class="container">
+                <div class="about-wrapper">
+                <div class="about-text">
+                    <h2>Design-Driven. Code-Perfected.</h2>
+                    <p>I believe technology should feel like magic. My journey started not with code, but with a fascination for why some products feel intuitive and others feel frustrating. This "why" drives me to bridge the gap between beautiful design and powerful engineering, solving human problems with elegant, efficient code.</p>
+                    <p>With over 3 years of experience in full-stack development, I specialize in creating digital experiences that not only look stunning but deliver real business value. From concept to deployment, I ensure every pixel serves a purpose and every line of code contributes to the user's journey.</p>
+                </div>
+                      <div class="code-container">
+                        <div class="code-display">
+                            <div class="code-header">
+                                <div class="window-controls">
+                                    <div class="control close"></div>
+                                    <div class="control minimize"></div>
+                                    <div class="control maximize"></div>
+                                </div>
+                                <div class="file-name">profile.js</div>
+                            </div>
+                            <div class="code-content">
+                <code class="code-block">
+                    <div class="code-line">
+                        <span class="text-pink-500">const</span>
+                        <span class="text-white">coder</span>
+                        <span class="text-pink-500">=</span>
+                        <span class="text-gray-400">{'{'}</span>
+                        <span class="blink"></span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-white">name:</span>
+                        <span class="text-gray-400">{`'`}</span>
+                        <span class="text-amber-300">Abu Said</span>
+                        <span class="text-gray-400">{`',`}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-white">skills:</span>
+                        <span class="text-gray-400">{`['`}</span>
+                        <span class="text-amber-300">React</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">NextJS</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">Redux</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">Express</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">NestJS</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">MySql</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">MongoDB</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">Docker</span>
+                        <span class="text-gray-400">{"', '"}</span>
+                        <span class="text-amber-300">AWS</span>
+                        <span class="text-gray-400">{"'],"}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-white">hardWorker:</span>
+                        <span class="text-orange-400">true</span>
+                        <span class="text-gray-400">,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-white">quickLearner:</span>
+                        <span class="text-orange-400">true</span>
+                        <span class="text-gray-400">,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-white">problemSolver:</span>
+                        <span class="text-orange-400">true</span>
+                        <span class="text-gray-400">,</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-green-400">hireable:</span>
+                        <span class="text-orange-400">function</span>
+                        <span class="text-gray-400">{'() {'}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-8 text-orange-400">return</span>
+                        <span class="text-gray-400">{`(`}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-12 text-cyan-400">this.</span>
+                        <span class="text-white">hardWorker</span>
+                        <span class="text-amber-300">&amp;&amp;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-12 text-cyan-400">this.</span>
+                        <span class="text-white">problemSolver</span>
+                        <span class="text-amber-300">&amp;&amp;</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-12 text-cyan-400">this.</span>
+                        <span class="text-white">skills.length</span>
+                        <span class="mr-2 text-amber-300">&gt;=</span>
+                        <span class="text-orange-400">5</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-8 text-gray-400">{`);`}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="ml-4 text-gray-400">{`};`}</span>
+                    </div>
+                    <div class="code-line">
+                        <span class="text-gray-400">{`};`}</span>
+                    </div>
+                </code>
+                            </div>
+                        </div>            
+                        <div class="code-content-footer">
+                            <p>Designed to match your exact styling requirements</p>
+                        </div>
+                      </div>
+                   </div>
+        </section>
+        <section id="skills" class="skills-section reveal">
+            <div class="container">
+                <h2>Technical Arsenal & Creative Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Backend & Database</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Express</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Design & Tools</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">Figma</span>
+                            <span class="skill-tag">Adobe XD</span>
+                            <span class="skill-tag">Git/GitHub</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Heroku</span>
+                        </div>
+                    </div>     
+                    <div class="skill-category">
+                        <h3><i class="fas fa-brain"></i> Soft Skills & Methods</h3>
+                        <div class="skills-list">
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Problem Solving</span>
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Client Communication</span>
+                            <span class="skill-tag">Project Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="journey" class="timeline-section">
+  <div class="container">
+    <h2 class="section-title">My Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-year">2021</span>
+        <div class="timeline-content">
+          <h3>Started Web Development</h3>
+          <p>Learned HTML, CSS and basic JavaScript. Built my first websites.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2022</span>
+        <div class="timeline-content">
+          <h3>Frontend Specialist</h3>
+          <p>Worked deeply with React, animations, and modern UI patterns.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2023</span>
+        <div class="timeline-content">
+          <h3>Full-Stack Developer</h3>
+          <p>Built scalable apps with Node.js, APIs, databases, and auth.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-year">2024</span>
+        <div class="timeline-content">
+          <h3>Freelance & Advanced Projects</h3>
+          <p>Delivered real-world projects with focus on performance and UX.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+        <section class="testimonials-section reveal">
+            <div class="testimonial-card">
+                <p>"KAMCODESIGNER delivered exceptional work..."</p>
+                <cite>- John Smith, CEO at TechCorp</cite>
+            </div>
+        </section>
+        <section id="work" class="work-section reveal">
+            <div class="container">
+                <h2>Featured Projects & Case Studies</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" alt="E-commerce Platform Screenshot">
+                        <div class="project-meta">
+                            <span class="project-type">E-Commerce</span>
+                        </div>
+                        <h3>ShopFlow - Modern E-commerce Platform</h3>
+                        <p>Complete e-commerce solution with advanced inventory management, real-time analytics, and seamless payment integration. Increased client's online sales by 65% within first quarter.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="cta-button-secondary">Live Demo</a>
+                            <a href="#" class="cta-button-secondary" onclick="openProjectModal('shopflow')">Case Study</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" alt="Dashboard Screenshot">
+                        <div class="project-meta">
+                            <span class="project-type">SaaS Dashboard</span>
+                        </div>
+                        <h3>DataViz Pro - Analytics Dashboard</h3>
+                        <p>Interactive data visualization platform handling 50K+ data points daily. Custom charts, real-time updates, and advanced filtering capabilities for business intelligence.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="cta-button-secondary">Live Demo</a>
+                            <a href="#" class="cta-button-secondary">GitHub</a>
+                        </div>
+                    </div> 
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e2775d2?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" alt="Mobile App Screenshot">
+                        <div class="project-meta">
+                            <span class="project-type">Mobile App</span>
+                        </div>
+                        <h3>LocalConnect - Community Platform</h3>
+                        <p>Cross-platform mobile app connecting local businesses with community members. Features include event management, local marketplace, and social networking capabilities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Socket.io</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="cta-button-secondary">App Store</a>
+                            <a href="#" class="cta-button-secondary">Features</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1200" alt="Corporate Website Screenshot">
+                        <div class="project-meta">
+                            <span class="project-type">Corporate Website</span>
+                        </div>
+                        <h3>TechCorp - Corporate Redesign</h3>
+                        <p>Complete website overhaul for a technology consulting firm. Modern design, improved user experience, and CMS integration resulted in 40% increase in lead generation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">WordPress</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="cta-button-secondary">Visit Site</a>
+                            <a href="#" class="cta-button-secondary">Process</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="services-section reveal">
+            <div class="service-card">
+                <h3>Full-Stack Development</h3>
+                <p>Starting at $X</p>
+                <ul>
+                    <li>Custom web applications</li>
+                    <li>API development</li>
+                    <li>Database design</li>
+                </ul>
+            </div>
+        </section>        
+        <section id="contact" class="contact-section reveal">
+            <div class="container">
+                <h2>Let's Build Something Extraordinary</h2>
+                <p>Ready to transform your ideas into powerful digital solutions? I'm passionate about creating experiences that make a real difference for businesses and users alike.</p>
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email Me</h4>
+                        <p>kamcodesigner@gmail.com</p>
+                        <a href="mailto:kamcodesigner@gmail.com" class="cta-button">Send Message</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h4>Call Me</h4>
+                        <p>+92 XXX XXX XXXX</p>
+                        <a href="#" class="cta-button">Schedule Call</a>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Location</h4>
+                        <p>Karachi, Pakistan</p>
+                        <a href="#" class="cta-button">Meet in Person</a>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="subject" placeholder="Project Subject" required>
+                    <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                    <button type="submit" class="cta-button">Send Project Details</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Dribbble">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 KAMCODESIGNER. Crafting digital excellence with passion and precision.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -3,34 +3,39 @@
 /* ======================= */
 :root,
 :root[data-theme="dark"] {
-    /* Bold deep royal purple */
-    --bg: #1c1052;
-    --bg-alt: #160c43;
-    --surface: #26196a;
-    --surface-2: #30237a;
-    --border: #3d2f8c;
-    --border-strong: #5444ad;
-    --text: #f3f0ff;
-    --text-muted: #c3bce6;
-    --text-faint: #9a92cc;
-    --accent: #b2a5ff;
+    /* Page gradient (the user's pick): navy blue, left to right */
+    --bg: #1c2c43;
+    --bg-image: linear-gradient(to right, #243b55, #141e30);
+    --bg-alt: rgba(6, 12, 24, 0.28);
+    /* Glassy surfaces let the gradient show through cards */
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-2: rgba(255, 255, 255, 0.09);
+    --surface-solid: #1f3049;
+    --border: rgba(255, 255, 255, 0.12);
+    --border-strong: rgba(255, 255, 255, 0.24);
+    --text: #eef3fb;
+    --text-muted: #bac6d8;
+    --text-faint: #97a7bf;
+    --accent: #b3a8ff;
     --accent-2: #22d3ee;
     --accent-3: #f472b6;
-    --accent-soft: rgba(178, 165, 255, 0.16);
-    --on-accent: #120a38;
+    --accent-soft: rgba(179, 168, 255, 0.16);
+    --on-accent: #0f1a2a;
     --success: #34d399;
-    --header-bg: rgba(28, 16, 82, 0.78);
-    --shadow: 0 18px 40px -18px rgba(6, 2, 28, 0.8);
-    --glow: 0 0 0 1px rgba(178, 165, 255, 0.4), 0 18px 50px -20px rgba(34, 211, 238, 0.45);
-    --particle: 215, 205, 255;
+    --header-bg: rgba(20, 30, 48, 0.65);
+    --shadow: 0 18px 40px -18px rgba(3, 8, 18, 0.8);
+    --glow: 0 0 0 1px rgba(179, 168, 255, 0.4), 0 18px 50px -20px rgba(34, 211, 238, 0.45);
+    --particle: 200, 215, 240;
     color-scheme: dark;
 }
 
 :root[data-theme="light"] {
     /* Light lavender to match the purple dark theme */
     --bg: #f4f1ff;
+    --bg-image: none;
     --bg-alt: #ebe5ff;
     --surface: #ffffff;
+    --surface-solid: #ffffff;
     --surface-2: #f3f0ff;
     --border: #ddd6fb;
     --border-strong: #c4b8f5;
@@ -87,7 +92,8 @@ html {
 }
 
 body {
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: var(--bg-image);
     color: var(--text);
     font-family: var(--font-body);
     font-size: 1rem;
@@ -1153,7 +1159,7 @@ kbd {
     height: 24px;
     border-radius: 50%;
     border: 2px solid var(--accent);
-    background: var(--bg-alt);
+    background: var(--surface-solid);
 }
 
 .timeline-node::after {
@@ -1328,6 +1334,23 @@ kbd {
     text-align: center;
 }
 
+.form-note.is-success {
+    color: var(--success);
+    font-weight: 500;
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.contact-form {
+    position: relative;
+}
+
 .form-note.is-error {
     color: #f87171;
 }
@@ -1393,7 +1416,7 @@ kbd {
     overflow-y: auto;
     border: 1px solid var(--border-strong);
     border-radius: 20px;
-    background: var(--surface);
+    background: var(--surface-solid);
     box-shadow: var(--shadow);
 }
 
@@ -1497,7 +1520,7 @@ kbd {
 .palette-inner {
     border: 1px solid var(--border-strong);
     border-radius: 16px;
-    background: var(--surface);
+    background: var(--surface-solid);
     box-shadow: var(--shadow);
     overflow: hidden;
 }
@@ -1575,7 +1598,7 @@ kbd {
     padding: 0.7rem 1.2rem;
     border: 1px solid var(--border-strong);
     border-radius: 999px;
-    background: var(--surface);
+    background: var(--surface-solid);
     box-shadow: var(--shadow);
     font-size: 0.9rem;
     font-weight: 500;
@@ -1678,7 +1701,7 @@ kbd {
         flex-direction: column;
         gap: 4px;
         padding: 12px var(--gutter) 20px;
-        background: var(--surface);
+        background: var(--surface-solid);
         border-bottom: 1px solid var(--border);
         box-shadow: var(--shadow);
         opacity: 0;

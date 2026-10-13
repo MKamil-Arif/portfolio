@@ -28,6 +28,26 @@ const PROJECTS = [
         repo: 'https://github.com/MKamil-Arif/CareerFlow-AI',
     },
     {
+        id: 'anonymous-chat',
+        title: 'Anonymous Chat',
+        label: 'Real-time · Node.js',
+        year: '2026',
+        categories: ['web'],
+        icon: 'fa-solid fa-user-secret',
+        colors: ['#10b981', '#3b82f6'],
+        summary: 'An NGL-style anonymous chat with two-way conversations: create a room, share the link on your status or story, and chat with visitors who join with any name and their relation to you.',
+        highlights: [
+            'No signup: creating a room returns a secret owner key, and a private owner link opens the dashboard on any device. Only a SHA-256 hash of the key is stored.',
+            'Owner dashboard lists every visitor and chat, and flags when a returning visitor switches to a new name or relation.',
+            'Visitor detection with a persistent device ID plus a browser fingerprint. IP addresses are never stored, only salted hashes.',
+            'Live updates: typing indicators, sent and seen ticks, online status, unread counts, and message edits and deletes.',
+            'Installable as a PWA with web push notifications, hardened with Helmet, rate limiting and a profanity filter.',
+        ],
+        tech: ['Node.js', 'Express', 'MongoDB', 'Socket.IO', 'Web Push', 'PWA'],
+        repo: 'https://github.com/MKamil-Arif/chat_webApp/tree/anonymous-chat-rooms',
+        live: 'https://anonymous-chat-kappa.vercel.app',
+    },
+    {
         id: 'compliancesphere',
         title: 'ComplianceSphere',
         label: 'Full-Stack · TypeScript',
@@ -44,7 +64,6 @@ const PROJECTS = [
         ],
         tech: ['React 18', 'TypeScript', 'Vite', 'Tailwind CSS', 'Radix UI', 'TanStack Query', 'Express', 'Drizzle ORM'],
         repo: 'https://github.com/MKamil-Arif/ComplianceSphereReact',
-        live: 'https://compliance-sphere.vercel.app',
     },
     {
         id: 'attendix',
@@ -63,7 +82,6 @@ const PROJECTS = [
         ],
         tech: ['PHP 8', 'MySQL / MariaDB', 'JavaScript', 'Bootstrap', 'dompdf'],
         repo: 'https://github.com/MKamil-Arif/Attendix.co',
-        live: 'https://attendix-co.vercel.app',
     },
     {
         id: 'activity-log',
@@ -98,25 +116,6 @@ const PROJECTS = [
         ],
         tech: ['C#', '.NET', 'PdfSharp', 'OxyPlot'],
         repo: 'https://github.com/MKamil-Arif/HplcPrototype_PDF_Generator',
-    },
-    {
-        id: 'chat',
-        title: 'Chat Web App',
-        label: 'Web App · Node.js',
-        year: '2026',
-        categories: ['web'],
-        icon: 'fa-solid fa-comments',
-        colors: ['#10b981', '#3b82f6'],
-        summary: 'A personal chat app: visitors join with their name and how they know me, then send messages, while an admin dashboard tracks users and conversations.',
-        highlights: [
-            'Quick onboarding: visitors enter a name and pick their relation (friend, family, colleague, student).',
-            'Chat screen for sending and reading messages.',
-            'Admin dashboard with a user count for managing people and conversations.',
-            'Node.js back end with MongoDB, deployed on Vercel.',
-        ],
-        tech: ['JavaScript', 'Node.js', 'MongoDB', 'HTML & CSS'],
-        repo: 'https://github.com/MKamil-Arif/chat_webApp',
-        live: 'https://chat-web-app-inky.vercel.app',
     },
     {
         id: 'employee',
@@ -169,6 +168,9 @@ const PROJECTS = [
 ];
 
 const EMAIL = 'urfik0005@gmail.com';
+// Contact form submissions are emailed to EMAIL via FormSubmit (no backend needed).
+// The first message sent triggers a one-time "Activate Form" email to that inbox.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 const LINKS = {
     github: 'https://github.com/MKamil-Arif',
     linkedin: 'https://www.linkedin.com/in/kamil-arif-b99956331/',
@@ -239,7 +241,7 @@ const themeColorMeta = $('meta[name="theme-color"]');
 
 function setTheme(theme) {
     root.dataset.theme = theme;
-    themeColorMeta.setAttribute('content', theme === 'light' ? '#f4f1ff' : '#1c1052');
+    themeColorMeta.setAttribute('content', theme === 'light' ? '#f4f1ff' : '#1c2c43');
     try { localStorage.setItem('theme', theme); } catch (e) { /* ignore */ }
     window.dispatchEvent(new Event('themechange'));
 }
@@ -249,7 +251,7 @@ function toggleTheme() {
 }
 
 $('.theme-toggle').addEventListener('click', toggleTheme);
-themeColorMeta.setAttribute('content', root.dataset.theme === 'light' ? '#f4f1ff' : '#1c1052');
+themeColorMeta.setAttribute('content', root.dataset.theme === 'light' ? '#f4f1ff' : '#1c2c43');
 
 /* ======================= */
 /* HEADER & NAVIGATION     */
@@ -580,11 +582,20 @@ const form = $('#contact-form');
 const formNote = $('.form-note', form);
 const defaultNote = formNote.textContent;
 
-form.addEventListener('submit', e => {
+const submitBtn = $('button[type="submit"]', form);
+const submitBtnHtml = submitBtn.innerHTML;
+
+function setNote(text, state) {
+    formNote.textContent = text;
+    formNote.classList.toggle('is-error', state === 'error');
+    formNote.classList.toggle('is-success', state === 'success');
+}
+
+form.addEventListener('submit', async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     let firstInvalid = null;
-    $$('input, textarea', form).forEach(field => {
+    $$('.field input, .field textarea', form).forEach(field => {
         const value = field.value.trim();
         const invalid = !value || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
         field.closest('.field').classList.toggle('has-error', invalid);
@@ -593,16 +604,48 @@ form.addEventListener('submit', e => {
     });
 
     if (firstInvalid) {
-        formNote.textContent = 'Please fill in every field with a valid email address.';
-        formNote.classList.add('is-error');
+        setNote('Please fill in every field with a valid email address.', 'error');
         firstInvalid.focus();
         return;
     }
 
-    const body = `${data.message.trim()}\n\n${data.name.trim()}\n${data.email.trim()}`;
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(data.subject.trim())}&body=${encodeURIComponent(body)}`;
-    formNote.classList.remove('is-error');
-    formNote.textContent = 'Your email app should open with the message ready. If not, email me directly at ' + EMAIL + '.';
+    // Spam bots fill the hidden honeypot field; pretend success and drop it
+    if (data._honey) {
+        form.reset();
+        setNote('Thanks! Your message has been sent.', 'success');
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+    setNote('Sending your message...');
+
+    try {
+        const res = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+                name: data.name.trim(),
+                email: data.email.trim(),           // FormSubmit uses this as the reply-to address
+                _subject: `Portfolio: ${data.subject.trim()}`,
+                message: data.message.trim(),
+                _template: 'table',
+                _captcha: 'false',
+            }),
+        });
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok || String(result.success) !== 'true') throw new Error(result.message || `HTTP ${res.status}`);
+
+        form.reset();
+        setNote("Thanks! Your message has been sent. I'll get back to you soon.", 'success');
+        showToast('Message sent');
+    } catch (err) {
+        console.error('Contact form failed:', err);
+        setNote(`Sorry, the message couldn't be sent. Please email me directly at ${EMAIL}.`, 'error');
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = submitBtnHtml;
+    }
 });
 
 form.addEventListener('input', e => {
@@ -610,10 +653,7 @@ form.addEventListener('input', e => {
     if (field && field.classList.contains('has-error') && e.target.value.trim()) {
         field.classList.remove('has-error');
         e.target.removeAttribute('aria-invalid');
-        if (!$('.has-error', form)) {
-            formNote.textContent = defaultNote;
-            formNote.classList.remove('is-error');
-        }
+        if (!$('.has-error', form)) setNote(defaultNote);
     }
 });
 

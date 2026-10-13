@@ -239,7 +239,7 @@ const themeColorMeta = $('meta[name="theme-color"]');
 
 function setTheme(theme) {
     root.dataset.theme = theme;
-    themeColorMeta.setAttribute('content', theme === 'light' ? '#f6f7fb' : '#0b0d14');
+    themeColorMeta.setAttribute('content', theme === 'light' ? '#f4f1ff' : '#1c1052');
     try { localStorage.setItem('theme', theme); } catch (e) { /* ignore */ }
     window.dispatchEvent(new Event('themechange'));
 }
@@ -249,7 +249,7 @@ function toggleTheme() {
 }
 
 $('.theme-toggle').addEventListener('click', toggleTheme);
-themeColorMeta.setAttribute('content', root.dataset.theme === 'light' ? '#f6f7fb' : '#0b0d14');
+themeColorMeta.setAttribute('content', root.dataset.theme === 'light' ? '#f4f1ff' : '#1c1052');
 
 /* ======================= */
 /* HEADER & NAVIGATION     */

@@ -3,35 +3,37 @@
 /* ======================= */
 :root,
 :root[data-theme="dark"] {
-    --bg: #0b0d14;
-    --bg-alt: #0e1119;
-    --surface: #131722;
-    --surface-2: #1a1f2d;
-    --border: #232939;
-    --border-strong: #343b50;
-    --text: #e7e9f0;
-    --text-muted: #9aa3b8;
-    --text-faint: #6b7489;
-    --accent: #8b7cff;
+    /* Bold deep royal purple */
+    --bg: #1c1052;
+    --bg-alt: #160c43;
+    --surface: #26196a;
+    --surface-2: #30237a;
+    --border: #3d2f8c;
+    --border-strong: #5444ad;
+    --text: #f3f0ff;
+    --text-muted: #c3bce6;
+    --text-faint: #9a92cc;
+    --accent: #b2a5ff;
     --accent-2: #22d3ee;
     --accent-3: #f472b6;
-    --accent-soft: rgba(139, 124, 255, 0.14);
-    --on-accent: #0b0d14;
+    --accent-soft: rgba(178, 165, 255, 0.16);
+    --on-accent: #120a38;
     --success: #34d399;
-    --header-bg: rgba(11, 13, 20, 0.72);
-    --shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.75);
-    --glow: 0 0 0 1px rgba(139, 124, 255, 0.35), 0 18px 50px -20px rgba(139, 124, 255, 0.55);
-    --particle: 200, 205, 255;
+    --header-bg: rgba(28, 16, 82, 0.78);
+    --shadow: 0 18px 40px -18px rgba(6, 2, 28, 0.8);
+    --glow: 0 0 0 1px rgba(178, 165, 255, 0.4), 0 18px 50px -20px rgba(34, 211, 238, 0.45);
+    --particle: 215, 205, 255;
     color-scheme: dark;
 }
 
 :root[data-theme="light"] {
-    --bg: #f6f7fb;
-    --bg-alt: #eef0f7;
+    /* Light lavender to match the purple dark theme */
+    --bg: #f4f1ff;
+    --bg-alt: #ebe5ff;
     --surface: #ffffff;
-    --surface-2: #f2f3f9;
-    --border: #e1e4ee;
-    --border-strong: #c9cfde;
+    --surface-2: #f3f0ff;
+    --border: #ddd6fb;
+    --border-strong: #c4b8f5;
     --text: #141826;
     --text-muted: #4f586c;
     --text-faint: #767e92;
@@ -41,7 +43,7 @@
     --accent-soft: rgba(90, 72, 232, 0.1);
     --on-accent: #ffffff;
     --success: #059669;
-    --header-bg: rgba(246, 247, 251, 0.78);
+    --header-bg: rgba(244, 241, 255, 0.8);
     --shadow: 0 18px 40px -22px rgba(20, 24, 38, 0.28);
     --glow: 0 0 0 1px rgba(90, 72, 232, 0.3), 0 18px 50px -24px rgba(90, 72, 232, 0.45);
     --particle: 90, 72, 232;
@@ -407,8 +409,8 @@ kbd {
     max-height: 900px;
     z-index: -2;
     background:
-        radial-gradient(closest-side, rgba(139, 124, 255, 0.22), transparent 70%),
-        radial-gradient(closest-side at 30% 70%, rgba(34, 211, 238, 0.14), transparent 70%);
+        radial-gradient(closest-side, rgba(236, 72, 153, 0.28), transparent 70%),
+        radial-gradient(closest-side at 30% 70%, rgba(34, 211, 238, 0.22), transparent 70%);
     filter: blur(20px);
     pointer-events: none;
 }

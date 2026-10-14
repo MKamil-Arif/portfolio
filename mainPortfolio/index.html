@@ -1,50 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Kamil Arif | Full-Stack Developer</title>
-    <meta name="description" content="Muhammad Kamil Arif (KAMCODESIGNER) is a full-stack developer from Karachi building web, desktop and AI-powered applications with React, Node.js, C#/.NET, PHP and Python.">
+    <title>Muhammad Kamil Arif | Web Developer</title>
+    <meta name="description" content="Muhammad Kamil Arif, a full-stack web developer from Karachi building web and desktop applications with React, Node.js, Python, C#/.NET and PHP.">
     <meta name="author" content="Muhammad Kamil Arif">
-    <meta name="theme-color" content="#1c2c43">
+    <meta name="theme-color" content="#2c74b5">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Muhammad Kamil Arif | Full-Stack Developer">
-    <meta property="og:description" content="Full-stack developer building web, desktop and AI-powered applications with React, Node.js, C#/.NET, PHP and Python.">
+    <meta property="og:title" content="Muhammad Kamil Arif | Web Developer">
+    <meta property="og:description" content="Full-stack developer building web and desktop applications with React, Node.js, Python, C#/.NET and PHP.">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <script>document.documentElement.classList.add('js');</script>
 
-    <!-- Apply saved theme before paint to avoid a flash -->
-    <script>
-        document.documentElement.classList.add('js');
-        try {
-            const saved = localStorage.getItem('theme');
-            if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
-        } catch (e) { /* storage unavailable: keep default */ }
-    </script>
-
+    <!-- The CV uses Verdana/Tahoma; Noto Sans only downloads on devices without them -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
 
     <!-- ======================= NAV ======================= -->
     <header class="site-header">
-        <nav class="container nav" aria-label="Primary">
-            <a href="#top" class="logo" aria-label="KAMCODESIGNER, back to top">
+        <nav class="nav" aria-label="Primary">
+            <a href="#top" class="logo" aria-label="Muhammad Kamil Arif, back to top">
                 <span class="logo-mark">&lt;/&gt;</span>
                 <span class="logo-text">KAMCODESIGNER</span>
             </a>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#summary">Summary</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
@@ -53,12 +45,8 @@
                     <i class="fas fa-terminal" aria-hidden="true"></i>
                     <kbd class="kbd-hint">Ctrl K</kbd>
                 </button>
-                <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
-                    <i class="fas fa-sun" aria-hidden="true"></i>
-                    <i class="fas fa-moon" aria-hidden="true"></i>
-                </button>
-                <a href="assets/Muhammad-Kamil-Arif-Resume.pdf" class="btn btn-primary btn-sm nav-resume" download>
-                    <i class="fas fa-download" aria-hidden="true"></i> Résumé
+                <a href="assets/Kamil-CV.pdf" class="btn btn-primary btn-sm nav-cv" download="Muhammad-Kamil-Arif-CV.pdf">
+                    <i class="fas fa-download" aria-hidden="true"></i> Download CV
                 </a>
                 <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
                     <i class="fas fa-bars" aria-hidden="true"></i>
@@ -67,301 +55,221 @@
         </nav>
     </header>
 
-    <main id="main">
-        <!-- ======================= HERO ======================= -->
-        <section id="top" class="hero">
-            <canvas class="hero-canvas" aria-hidden="true"></canvas>
-            <div class="hero-glow" aria-hidden="true"></div>
-
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <p class="status-pill reveal">
-                        <span class="status-dot" aria-hidden="true"></span>
-                        Open to opportunities &middot; Karachi, Pakistan
-                    </p>
-                    <p class="hero-hello reveal">Hi, I'm</p>
-                    <h1 class="hero-name reveal">Muhammad <span class="gradient-text">Kamil Arif</span></h1>
-                    <p class="hero-role reveal">
-                        I build <span class="typed" aria-hidden="true"></span><span class="caret" aria-hidden="true"></span>
-                        <span class="sr-only">full-stack web apps, AI-powered tools, C# and .NET desktop software, and data dashboards.</span>
-                    </p>
-                    <p class="hero-summary reveal">
-                        Full-stack developer working across React, Node.js, C#/.NET, PHP and Python, with a focus on
-                        clean interfaces, solid databases, and security-aware code.
-                    </p>
-                    <div class="hero-ctas reveal">
-                        <a href="#projects" class="btn btn-primary">See my work <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-                        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-                    </div>
-                    <ul class="hero-socials reveal" aria-label="Social profiles">
-                        <li><a href="https://github.com/MKamil-Arif" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/kamil-arif-b99956331/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                        <li><a href="https://codepen.io/KAMI-AURFI" target="_blank" rel="noopener" aria-label="CodePen"><i class="fab fa-codepen"></i></a></li>
-                        <li><a href="https://instagram.com/kamilarif330" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="mailto:urfik0005@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
-                    </ul>
-                </div>
-
-                <figure class="code-card reveal" aria-label="A short JavaScript object describing me">
-                    <div class="code-card-bar">
-                        <span class="dot dot-red"></span><span class="dot dot-yellow"></span><span class="dot dot-green"></span>
-                        <span class="code-file">kamil.js</span>
-                    </div>
-<pre class="code-body"><code><span class="tk-kw">const</span> <span class="tk-var">kamil</span> <span class="tk-op">=</span> {
-  <span class="tk-prop">name</span>: <span class="tk-str">'Muhammad Kamil Arif'</span>,
-  <span class="tk-prop">role</span>: <span class="tk-str">'Full-Stack Developer'</span>,
-  <span class="tk-prop">based</span>: <span class="tk-str">'Karachi, PK'</span>,
-  <span class="tk-prop">stack</span>: [<span class="tk-str">'React'</span>, <span class="tk-str">'Node.js'</span>, <span class="tk-str">'C#/.NET'</span>,
-          <span class="tk-str">'PHP'</span>, <span class="tk-str">'Python'</span>],
-  <span class="tk-prop">learnsBy</span>: <span class="tk-str">'building real projects'</span>,
-  <span class="tk-prop">securityAware</span>: <span class="tk-bool">true</span>,
-  <span class="tk-fn">hireable</span>() {
-    <span class="tk-kw">return</span> <span class="tk-this">this</span>.stack.length <span class="tk-op">&gt;=</span> <span class="tk-num">5</span>; <span class="tk-cmt">// true</span>
-  },
-};</code></pre>
-                </figure>
+    <main id="main" class="paper">
+        <!-- ======================= CV HEADER ======================= -->
+        <header id="top" class="cv-header reveal">
+            <h1 class="cv-name">Muhammad Kamil Arif</h1>
+            <p class="cv-title">Web Developer</p>
+            <p class="cv-contact">
+                <a href="tel:+923312511066">(+92) 331 2511066</a>
+                <span aria-hidden="true">&ndash;</span>
+                <a href="mailto:urfik0005@gmail.com">urfik0005@gmail.com</a>
+                <span aria-hidden="true">&ndash;</span>
+                <a href="mailto:urfik005@hotmail.com">urfik005@hotmail.com</a>
+                <span aria-hidden="true">&ndash;</span>
+                <a href="https://github.com/MKamil-Arif" target="_blank" rel="noopener">GitHub</a>
+            </p>
+            <div class="cv-actions">
+                <a href="assets/Kamil-CV.pdf" class="btn btn-primary" download="Muhammad-Kamil-Arif-CV.pdf">
+                    <i class="fas fa-download" aria-hidden="true"></i> Download CV
+                </a>
+                <a href="#contact" class="btn btn-ghost">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Contact me
+                </a>
+                <ul class="socials" aria-label="Social profiles">
+                    <li><a href="https://github.com/MKamil-Arif" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/kamil-arif-b99956331/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://codepen.io/KAMI-AURFI" target="_blank" rel="noopener" aria-label="CodePen"><i class="fab fa-codepen"></i></a></li>
+                    <li><a href="https://instagram.com/kamilarif330" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
             </div>
+        </header>
 
-            <a href="#about" class="scroll-cue" aria-label="Scroll to About">
-                <span></span>
-            </a>
-        </section>
-
-        <!-- ======================= ABOUT ======================= -->
-        <section id="about" class="section">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="kicker"><span>01</span> About</p>
-                    <h2>I learn by building things people actually use.</h2>
-                </header>
-
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p>
-                            I'm a versatile full-stack developer who builds both web and desktop applications. My day-to-day
-                            spans <strong>React</strong> and <strong>Node.js</strong> on the web, <strong>C# / .NET</strong> for
-                            desktop tools and reporting, <strong>PHP &amp; MySQL</strong> for data-heavy systems, and
-                            <strong>Python</strong> for automation and AI-backed services.
-                        </p>
-                        <p>
-                            I care about database integration, automation, and interfaces that feel obvious to the person
-                            using them. I'm also interested in security: I've had hands-on exposure to penetration testing
-                            and have built activity-monitoring tooling, so I try to write code that's safe by default.
-                        </p>
-                        <p>
-                            I prefer learning by shipping projects over watching tutorials, and I'm looking to contribute
-                            to high-impact work on a team that moves fast.
-                        </p>
-                    </div>
-
-                    <ul class="facts reveal" aria-label="Quick facts">
-                        <li class="fact">
-                            <i class="fas fa-location-dot" aria-hidden="true"></i>
-                            <div><span class="fact-label">Based in</span><span class="fact-value">Karachi, Pakistan</span></div>
-                        </li>
-                        <li class="fact">
-                            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-                            <div><span class="fact-label">Studying</span><span class="fact-value">BS, Space Science &amp; Technology, University of Karachi</span></div>
-                        </li>
-                        <li class="fact">
-                            <i class="fas fa-certificate" aria-hidden="true"></i>
-                            <div><span class="fact-label">Diploma</span><span class="fact-value">DISE, Aptech Education</span></div>
-                        </li>
-                        <li class="fact">
-                            <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                            <div><span class="fact-label">Interested in</span><span class="fact-value">Security-aware development</span></div>
-                        </li>
-                    </ul>
+        <!-- ======================= SUMMARY ======================= -->
+        <section id="summary" class="cv-section reveal" aria-labelledby="h-summary">
+            <div class="cv-head"><h2 class="cv-tag" id="h-summary">Summary</h2><span class="cv-rule" aria-hidden="true"></span></div>
+            <div class="cv-row">
+                <div class="cv-label"></div>
+                <div class="cv-body">
+                    <p>
+                        Versatile Full-Stack Developer with experience in building web and desktop applications using
+                        React, Node.js, Python, and C#. I am skilled in database integration, automation tools, and
+                        user-focused UI/UX development. Passionate about security-aware development with hands-on
+                        exposure to penetration testing and activity monitoring applications. Always eager to explore
+                        new technologies and contribute to high-impact projects in a dynamic organization.
+                    </p>
                 </div>
-
-                <dl class="stats reveal">
-                    <div class="stat"><dt>Projects built</dt><dd><span data-count="9">9</span>+</dd></div>
-                    <div class="stat"><dt>Languages</dt><dd><span data-count="6">6</span></dd></div>
-                    <div class="stat"><dt>Years building</dt><dd><span data-count="3">3</span>+</dd></div>
-                    <div class="stat"><dt>Platforms</dt><dd class="stat-words">Web · Desktop · AI</dd></div>
-                </dl>
             </div>
         </section>
 
-        <!-- ======================= SKILLS ======================= -->
-        <section id="skills" class="section section-alt">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="kicker"><span>02</span> Skills</p>
-                    <h2>The tools I reach for.</h2>
-                </header>
+        <!-- ======================= EDUCATION ======================= -->
+        <section id="education" class="cv-section reveal" aria-labelledby="h-education">
+            <div class="cv-head"><h2 class="cv-tag" id="h-education">Education</h2><span class="cv-rule" aria-hidden="true"></span></div>
 
-                <div class="skills-grid">
-                    <div class="card skill-bars reveal">
-                        <h3><i class="fas fa-chart-simple" aria-hidden="true"></i> Core strengths</h3>
-                        <ul>
-                            <li class="bar" style="--level: 90%"><span class="bar-name">Node.js</span><span class="bar-val">90%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                            <li class="bar" style="--level: 85%"><span class="bar-name">React</span><span class="bar-val">85%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                            <li class="bar" style="--level: 85%"><span class="bar-name">PHP</span><span class="bar-val">85%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                            <li class="bar" style="--level: 80%"><span class="bar-name">C# / ASP.NET MVC</span><span class="bar-val">80%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                            <li class="bar" style="--level: 75%"><span class="bar-name">Python</span><span class="bar-val">75%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                            <li class="bar" style="--level: 70%"><span class="bar-name">Dart / Flutter</span><span class="bar-val">70%</span><span class="bar-track"><span class="bar-fill"></span></span></li>
-                        </ul>
-                    </div>
-
-                    <div class="skill-groups">
-                        <div class="card skill-group reveal">
-                            <h3><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
-                            <ul class="tags">
-                                <li>JavaScript</li><li>TypeScript</li><li>C#</li><li>PHP</li><li>Python</li><li>Dart</li><li>HTML5</li><li>CSS3</li>
-                            </ul>
-                        </div>
-                        <div class="card skill-group reveal">
-                            <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Frameworks</h3>
-                            <ul class="tags">
-                                <li>React</li><li>Express</li><li>ASP.NET MVC</li><li>.NET Core</li><li>Laravel</li><li>FastAPI</li><li>Flutter</li><li>Tailwind CSS</li>
-                            </ul>
-                        </div>
-                        <div class="card skill-group reveal">
-                            <h3><i class="fas fa-database" aria-hidden="true"></i> Data</h3>
-                            <ul class="tags">
-                                <li>SQL Server</li><li>MySQL / MariaDB</li><li>MongoDB</li><li>Drizzle ORM</li><li>REST APIs</li>
-                            </ul>
-                        </div>
-                        <div class="card skill-group reveal">
-                            <h3><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i> Tools</h3>
-                            <ul class="tags">
-                                <li>Git &amp; GitHub</li><li>VS Code</li><li>Visual Studio</li><li>phpMyAdmin</li><li>Docker</li><li>Vite</li><li>Vercel</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="cv-row">
+                <div class="cv-label">
+                    <h3 class="cv-key">Aptech Education</h3>
+                    <span class="cv-meta">2023 &ndash; onwards</span>
+                </div>
+                <div class="cv-body">
+                    <p>Diploma in Computer Science and Information Technology (DISE).</p>
+                    <p>Progress report: 100%.</p>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label">
+                    <h3 class="cv-key">Karachi University</h3>
+                    <span class="cv-meta">2023 &ndash; onwards</span>
+                </div>
+                <div class="cv-body">
+                    <p>Bachelor's, Institute of Space Science and Technology (ISST).</p>
+                    <p>In progress: fifth semester.</p>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label">
+                    <h3 class="cv-key">Jinnah Govt. College</h3>
+                    <span class="cv-meta">2022 &ndash; 2023</span>
+                </div>
+                <div class="cv-body">
+                    <p>Higher Secondary Certificate 2023.</p>
+                    <p>Pre-Engineering (Sindh Board).</p>
+                    <p>Grade B, 61%.</p>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label">
+                    <h3 class="cv-key">Public School &amp; College</h3>
+                    <span class="cv-meta">2021</span>
+                </div>
+                <div class="cv-body">
+                    <p>Secondary School Certificate 2021.</p>
+                    <p>Bio-Science (Sindh Board).</p>
+                    <p>Grade A-1, 84%.</p>
                 </div>
             </div>
         </section>
 
         <!-- ======================= PROJECTS ======================= -->
-        <section id="projects" class="section">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="kicker"><span>03</span> Projects</p>
-                    <h2>Selected work.</h2>
-                    <p class="section-sub">From AI-assisted career tools to compliance platforms and desktop reporting. Open any card for the details.</p>
-                </header>
+        <section id="projects" class="cv-section reveal" aria-labelledby="h-projects">
+            <div class="cv-head"><h2 class="cv-tag" id="h-projects">Projects</h2><span class="cv-rule" aria-hidden="true"></span></div>
 
-                <div class="filters reveal" role="group" aria-label="Filter projects">
-                    <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
-                    <button type="button" class="filter" data-filter="web" aria-pressed="false">Web</button>
-                    <button type="button" class="filter" data-filter="desktop" aria-pressed="false">Desktop</button>
+            <div class="cv-row cv-row-tight">
+                <div class="cv-label"></div>
+                <div class="cv-body">
+                    <div class="filters" role="group" aria-label="Filter projects">
+                        <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+                        <button type="button" class="filter" data-filter="web" aria-pressed="false">Web</button>
+                        <button type="button" class="filter" data-filter="desktop" aria-pressed="false">Desktop</button>
+                    </div>
                 </div>
+            </div>
 
-                <ul class="projects-grid" id="projects-grid"></ul>
-                <noscript><p class="noscript">Enable JavaScript to see project cards, or browse them on <a href="https://github.com/MKamil-Arif">GitHub</a>.</p></noscript>
+            <div id="projects-list"></div>
+            <noscript><p class="noscript">Enable JavaScript to see projects, or browse them on <a href="https://github.com/MKamil-Arif">GitHub</a>.</p></noscript>
+        </section>
 
-                <p class="more-link reveal">
-                    <a href="https://github.com/MKamil-Arif?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost">
-                        <i class="fab fa-github" aria-hidden="true"></i> More on GitHub
-                    </a>
-                </p>
+        <!-- ======================= SKILLS ======================= -->
+        <section id="skills" class="cv-section reveal" aria-labelledby="h-skills">
+            <div class="cv-head"><h2 class="cv-tag" id="h-skills">Skills</h2><span class="cv-rule" aria-hidden="true"></span></div>
+            <div class="cv-row">
+                <div class="cv-label"></div>
+                <div class="cv-body">
+                    <ul class="skill-grid">
+                        <li class="skill" data-level="7"><span>C# MVC (.Net)</span></li>
+                        <li class="skill" data-level="7"><span>PHP</span></li>
+                        <li class="skill" data-level="6"><span>React</span></li>
+                        <li class="skill" data-level="5"><span>Node.js</span></li>
+                        <li class="skill" data-level="5"><span>Python (Tkinter)</span></li>
+                        <li class="skill" data-level="7"><span>C# API</span></li>
+                        <li class="skill" data-level="5"><span>Flutter (Dart)</span></li>
+                        <li class="skill" data-level="7"><span>Tailwind CSS</span></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- ======================= EDUCATION ======================= -->
-        <section id="education" class="section section-alt">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="kicker"><span>04</span> Education</p>
-                    <h2>Where I've studied.</h2>
-                </header>
+        <!-- ======================= EXPERTISE ======================= -->
+        <section id="expertise" class="cv-section reveal" aria-labelledby="h-expertise">
+            <div class="cv-head"><h2 class="cv-tag" id="h-expertise">Expertise</h2><span class="cv-rule" aria-hidden="true"></span></div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Languages</h3></div>
+                <div class="cv-body">
+                    <p class="cv-sub">Programming languages</p>
+                    <ul class="cv-list">
+                        <li>PHP</li><li>C#</li><li>Node.js</li><li>JavaScript</li><li>Dart</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Frameworks</h3></div>
+                <div class="cv-body">
+                    <ul class="cv-list">
+                        <li>PHP Laravel</li><li>MVC .NET Core</li><li>Flutter</li><li>React</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-                <ol class="timeline">
-                    <li class="timeline-item reveal">
-                        <span class="timeline-node" aria-hidden="true"></span>
-                        <div class="card timeline-card">
-                            <div class="timeline-top">
-                                <h3>University of Karachi</h3>
-                                <span class="badge">2023 &ndash; present</span>
-                            </div>
-                            <p class="timeline-degree">BS, Institute of Space Science &amp; Technology (ISST)</p>
-                            <p>Currently in the fifth semester.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item reveal">
-                        <span class="timeline-node" aria-hidden="true"></span>
-                        <div class="card timeline-card">
-                            <div class="timeline-top">
-                                <h3>Aptech Education</h3>
-                                <span class="badge">2023 &ndash; present</span>
-                            </div>
-                            <p class="timeline-degree">Diploma in Computer Science &amp; Information Technology (DISE)</p>
-                            <p>Coursework progress: 100%.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item reveal">
-                        <span class="timeline-node" aria-hidden="true"></span>
-                        <div class="card timeline-card">
-                            <div class="timeline-top">
-                                <h3>Jinnah Govt. College</h3>
-                                <span class="badge">2022 &ndash; 2023</span>
-                            </div>
-                            <p class="timeline-degree">Higher Secondary Certificate, Pre-Engineering</p>
-                            <p>Grade B, 61% (Sindh Board).</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item reveal">
-                        <span class="timeline-node" aria-hidden="true"></span>
-                        <div class="card timeline-card">
-                            <div class="timeline-top">
-                                <h3>Public School &amp; College</h3>
-                                <span class="badge">2021</span>
-                            </div>
-                            <p class="timeline-degree">Secondary School Certificate, Bio-Science</p>
-                            <p>Grade A-1, 84% (Sindh Board).</p>
-                        </div>
-                    </li>
-                </ol>
+        <!-- ======================= SOFTWARE ======================= -->
+        <section id="software" class="cv-section reveal" aria-labelledby="h-software">
+            <div class="cv-head"><h2 class="cv-tag" id="h-software">Software</h2><span class="cv-rule" aria-hidden="true"></span></div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Working on</h3></div>
+                <div class="cv-body">
+                    <ul class="cv-list">
+                        <li>Microsoft Visual Studio</li><li>Visual Studio Code</li><li>Microsoft SQL Server</li>
+                        <li>phpMyAdmin</li><li>MS Word</li><li>MS Excel</li><li>MS PowerPoint</li><li>GitHub</li><li>Git</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= INTERESTS ======================= -->
+        <section id="interests" class="cv-section reveal" aria-labelledby="h-interests">
+            <div class="cv-head"><h2 class="cv-tag" id="h-interests">Interests</h2><span class="cv-rule" aria-hidden="true"></span></div>
+            <div class="cv-row">
+                <div class="cv-label"></div>
+                <div class="cv-body">
+                    <ul class="cv-list">
+                        <li>Programming</li><li>Typing</li><li>Netsurfing</li><li>Helping</li><li>Marketing</li><li>Learning</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
         <!-- ======================= CONTACT ======================= -->
-        <section id="contact" class="section">
-            <div class="container">
-                <header class="section-head reveal">
-                    <p class="kicker"><span>05</span> Contact</p>
-                    <h2>Let's build something together.</h2>
-                    <p class="section-sub">Have a role, a project, or a question? My inbox is open.</p>
-                </header>
+        <section id="contact" class="cv-section reveal" aria-labelledby="h-contact">
+            <div class="cv-head"><h2 class="cv-tag" id="h-contact">Contact</h2><span class="cv-rule" aria-hidden="true"></span></div>
 
-                <div class="contact-grid">
-                    <ul class="contact-cards reveal">
-                        <li class="card contact-card">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                            <div>
-                                <span class="contact-label">Email</span>
-                                <a href="mailto:urfik0005@gmail.com" class="contact-value">urfik0005@gmail.com</a>
-                            </div>
-                            <button type="button" class="icon-btn copy-email" data-email="urfik0005@gmail.com" aria-label="Copy email address" title="Copy email">
-                                <i class="far fa-copy" aria-hidden="true"></i>
-                            </button>
-                        </li>
-                        <li class="card contact-card">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                            <div>
-                                <span class="contact-label">Phone</span>
-                                <a href="tel:+923312511066" class="contact-value">+92 331 2511066</a>
-                            </div>
-                        </li>
-                        <li class="card contact-card">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                            <div>
-                                <span class="contact-label">LinkedIn</span>
-                                <a href="https://www.linkedin.com/in/kamil-arif-b99956331/" target="_blank" rel="noopener" class="contact-value">in/kamil-arif</a>
-                            </div>
-                        </li>
-                        <li class="card contact-card">
-                            <i class="fab fa-github" aria-hidden="true"></i>
-                            <div>
-                                <span class="contact-label">GitHub</span>
-                                <a href="https://github.com/MKamil-Arif" target="_blank" rel="noopener" class="contact-value">MKamil-Arif</a>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <form class="card contact-form reveal" id="contact-form" novalidate>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Email</h3></div>
+                <div class="cv-body contact-line">
+                    <a href="mailto:urfik0005@gmail.com">urfik0005@gmail.com</a>
+                    <button type="button" class="icon-btn copy-email" data-email="urfik0005@gmail.com" aria-label="Copy email address" title="Copy email">
+                        <i class="far fa-copy" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Alt. email</h3></div>
+                <div class="cv-body contact-line"><a href="mailto:urfik005@hotmail.com">urfik005@hotmail.com</a></div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Phone</h3></div>
+                <div class="cv-body contact-line"><a href="tel:+923312511066">(+92) 331 2511066</a></div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Profiles</h3></div>
+                <div class="cv-body contact-line">
+                    <a href="https://github.com/MKamil-Arif" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/kamil-arif-b99956331/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="cv-row">
+                <div class="cv-label"><h3 class="cv-key">Message</h3></div>
+                <div class="cv-body">
+                    <form class="contact-form" id="contact-form" novalidate>
                         <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <div class="field-row">
                             <label class="field">
@@ -381,7 +289,7 @@
                             <span>Message</span>
                             <textarea name="message" rows="5" required></textarea>
                         </label>
-                        <button type="submit" class="btn btn-primary btn-block">
+                        <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane" aria-hidden="true"></i> Send message
                         </button>
                         <p class="form-note" role="status" aria-live="polite">Your message goes straight to my inbox.</p>
@@ -391,23 +299,20 @@
         </section>
     </main>
 
-    <!-- ======================= FOOTER ======================= -->
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>&copy; <span id="year">2026</span> Muhammad Kamil Arif &middot; KAMCODESIGNER</p>
-            <p class="footer-built">Hand-built with HTML, CSS &amp; JavaScript.</p>
-            <a href="#top" class="icon-btn" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
-        </div>
+        <p>&copy; <span id="year">2026</span> Muhammad Kamil Arif &middot; KAMCODESIGNER</p>
+        <a href="#top" class="icon-btn" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></a>
     </footer>
 
     <!-- ======================= PROJECT MODAL ======================= -->
     <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
         <div class="modal-inner">
-            <button type="button" class="icon-btn modal-close" aria-label="Close project details"><i class="fas fa-xmark" aria-hidden="true"></i></button>
-            <div class="modal-art" id="modal-art" aria-hidden="true"></div>
+            <div class="modal-head">
+                <h2 id="modal-title"></h2>
+                <button type="button" class="modal-close" aria-label="Close project details"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+            </div>
             <div class="modal-body">
                 <p class="modal-meta" id="modal-meta"></p>
-                <h2 id="modal-title"></h2>
                 <p class="modal-summary" id="modal-summary"></p>
                 <h3>Highlights</h3>
                 <ul class="modal-highlights" id="modal-highlights"></ul>
